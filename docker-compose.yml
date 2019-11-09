@@ -1,0 +1,22 @@
+version: "3"
+services:
+  science-bow-python:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: science-bow-python
+    volumes:
+      - .:/usr/src/app
+      - data:/usr/src/app/data
+    ports:
+      - 5000:8080
+    networks:
+      - esnet
+
+volumes:
+  data:
+
+networks:
+  esnet:
+    driver: bridge
+
